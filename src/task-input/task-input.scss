@@ -1,0 +1,49 @@
+@import '../scss/mixins.scss';
+@import '../scss/global.scss';
+
+.task-input {
+	&__content {
+		padding: 33px 20px;
+		display: flex;
+		align-items: center;
+		background: #FFFFFF;
+		border: 1px solid rgba(80, 81, 79, 0.25);
+	}
+
+	&__input {
+		flex: 1 1 100%;
+		@include adaptive-font(26, 12);
+
+		&::placeholder {
+			color: rgba(80, 81, 79, 0.5);
+			font-weight: 300;
+			@include adaptive-font(26, 12);
+			font-style: italic;
+		}
+	}
+
+	&__image {
+		@include adaptive-value('width', 36, 26);
+		margin-right: 20px;
+		cursor: pointer;
+		transition: transform .2s;
+	}
+
+	&__image--active {
+		transform: rotate(180deg);
+	}
+
+	&__button {
+		margin-left: auto;
+		font-weight: 300;
+		@include adaptive-font(18, 10);
+		text-align: center;
+		color: #23CE6B;
+		background: #FFFFFF;
+		border: 1px solid rgba(80, 81, 79, 0.25);
+		border-radius: 10px;
+		padding: 5px 12px;
+	}
+}
+
+// mQueries

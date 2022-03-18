@@ -1,0 +1,17 @@
+@import '../scss/vars.scss';
+@import '../scss/mixins.scss';
+@import '../scss/global.scss';
+
+.app {
+
+	&__content {
+		text-align: center;
+	}
+
+	&__title {
+		@include adaptive-font(96, 48);
+		font-weight: 300;
+		color: $purple;
+		margin: 25px 0;
+	}
+}
