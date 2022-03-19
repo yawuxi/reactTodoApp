@@ -1,10 +1,10 @@
 import './task-info-bar.scss'
 
-const TaskInfoBar = ({ isOpenState }) => {
+const TaskInfoBar = ({ isOpenState, tasks }) => {
 	return (
 		<div className="task-info-bar">
 			<div className={isOpenState ? 'task-info-bar__content' : 'task-info-bar__content task-info-bar__content--closed'}>
-				<p className="task-info-bar__items">4 tasks left</p>
+				<p className="task-info-bar__items">{tasks.length} tasks left</p>
 				<ul className="task-bar-filters">
 					<li className="task-bar-filters__item task-bar-filters__item--active">
 						<p className="task-bar-filters__text">All</p>
