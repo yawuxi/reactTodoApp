@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import nextId from "react-id-generator";
 import './App.scss';
 
 import TaskInput from '../task-input/task-input';
@@ -10,6 +11,11 @@ class App extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			tasks: [
+				{ taskText: 'Example of task #1', taskCompleted: false, id: nextId() },
+				{ taskText: 'Example of task #2', taskCompleted: false, id: nextId() },
+				{ taskText: 'Example of task #3', taskCompleted: false, id: nextId() },
+			],
 			isOpen: true,
 		}
 	}
@@ -21,6 +27,9 @@ class App extends Component {
 	}
 
 	render() {
+
+		const { tasks, isOpen } = this.state
+
 		return (
 			<div className="wrapper">
 				<div className="app">
@@ -28,10 +37,16 @@ class App extends Component {
 						<h1 className='app__title'>Todo App</h1>
 						<TaskInput
 							openTaskList={this.openTaskList}
-							isOpenState={this.state.isOpen}
+							isOpenState={isOpen}
 						/>
-						<TaskList isOpenState={this.state.isOpen} />
-						<TaskInfoBar isOpenState={this.state.isOpen} />
+						<TaskList
+							isOpenState={isOpen}
+							completeTask={this.completeTask}
+							tasks={tasks}
+						/>
+						<TaskInfoBar
+							isOpenState={isOpen}
+							tasks={tasks} />
 					</div>
 				</div>
 			</div>
